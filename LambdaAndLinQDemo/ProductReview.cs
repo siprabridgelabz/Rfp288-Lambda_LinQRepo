@@ -6,7 +6,17 @@ using System.Threading.Tasks;
 
 namespace LambdaAndLinQDemo
 {
-    internal class ProductReview
+    //Lambda Expression is used to create anonymous function,expression and body member
+    public class ProductReview
     {
+       public int ProductId { get; set; }
+        public int UserId { get; set; }
+
+        public int Rating { get; set; }
+
+        public string Review { get; set; }
+        public bool IsLike { get; set; }
+
+
     }
 }
