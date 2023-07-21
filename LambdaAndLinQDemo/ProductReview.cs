@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 namespace LambdaAndLinQDemo
 {
     //Lambda Expression is used to create anonymous function,expression and body member
+    //LINQ-its a language integrated Query
     public class ProductReview
     {
        public int ProductId { get; set; }
