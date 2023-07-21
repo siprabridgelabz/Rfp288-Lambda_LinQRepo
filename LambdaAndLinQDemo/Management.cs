@@ -91,6 +91,20 @@ namespace LambdaAndLinQDemo
                 Console.WriteLine(product.ProductId + "  " + product.Review);
             }
         }
+        public void SkipTop_Record(List<ProductReview> products)
+        {
+            var result = products.OrderByDescending(x => x.Rating).Skip(5);
+            var records = (from product in products select product).Skip(5);
+            Console.WriteLine("Using LinQ");
+            Console.WriteLine("-----------------------------");
+            foreach (var prod in records)
+            {
+                Console.WriteLine(prod.ProductId + "  " + prod.UserId + "  " + prod.Rating +
+                    "  " + prod.Review + "  " + prod.IsLike);
+            }
+            //Display(records);
+            Display(result);
+        }
 
 
     }
