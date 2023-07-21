@@ -54,5 +54,24 @@ namespace LambdaAndLinQDemo
                     + prod.Review + " " + prod.IsLike);
             }
         }
+        public void CountProduct(List<ProductReview> products)
+        {
+            Console.WriteLine("Using LINQ");
+            Console.WriteLine(".........");
+
+            var record = products.GroupBy(x => x.ProductId).Select(x=>new {ProductId=x.Key,Count=x.Count()});
+            foreach (var product in record)
+            {
+                Console.WriteLine(product.ProductId + " " + product.Count);
+            }
+            Console.WriteLine("Using Lambda");
+            Console.WriteLine(".........");
+
+            var result = products.GroupBy(x => x.ProductId);
+            foreach (var product in result)
+            {
+                Console.WriteLine(product.Key+" "+product.Count());
+            }
+        }
     }
 }
