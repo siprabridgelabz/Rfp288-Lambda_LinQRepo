@@ -73,5 +73,25 @@ namespace LambdaAndLinQDemo
                 Console.WriteLine(product.Key+" "+product.Count());
             }
         }
+        public void ProductId_Review(List<ProductReview> products)
+        {
+            Console.WriteLine("Using Lambda");
+            Console.WriteLine("-----------------------------");
+            var result = products.Select(x => new { x.ProductId, x.Review });
+
+            foreach (var product in result)
+            {
+                Console.WriteLine(product.ProductId + "  " + product.Review);
+            }
+            Console.WriteLine("Using LinQ");
+            Console.WriteLine("-----------------------------");
+            var record = from product in products select new { product.ProductId, product.Review };
+            foreach (var product in record)
+            {
+                Console.WriteLine(product.ProductId + "  " + product.Review);
+            }
+        }
+
+
     }
 }
